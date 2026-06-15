@@ -1,0 +1,178 @@
+"""
+Vietnam Payroll Calculator - calculator.py
+Tính lương theo quy định Việt Nam (cập nhật 7/2024)
+
+Tài liệu pháp lý:
+- Luật Thuế TNCN số 04/2007/QH12 và các sửa đổi
+- Nghị định 65/2013/NĐ-CP (hướng dẫn thuế TNCN)
+- Luật BHXH số 58/2014/QH13
+- Nghị định 74/2024/NĐ-CP (lương tối thiểu vùng từ 1/7/2024)
+- Nghị định 73/2024/NĐ-CP (lương cơ sở từ 1/7/2024)
+"""
+
+# ============================================================
+# HẰNG SỐ THEO QUY ĐỊNH PHÁP LUẬT (cập nhật 7/2024)
+# ============================================================
+
+# Giảm trừ gia cảnh (Thông tư 111/2013/TT-BTC, sửa đổi 2020)
+PERSONAL_DEDUCTION = 11_000_000     # 11 triệu đồng/tháng (bản thân)
+DEPENDENT_DEDUCTION = 4_400_000     # 4.4 triệu đồng/tháng/người phụ thuộc
+
+# Mức đóng BHXH/BHYT/BHTN (phần người lao động)
+BHXH_RATE = 0.08    # 8% vào quỹ hưu trí và tử tuất
+BHYT_RATE = 0.015   # 1.5% bảo hiểm y tế
+BHTN_RATE = 0.01    # 1% bảo hiểm thất nghiệp
+
+# Mức trần đóng BHXH/BHYT = 20 × lương cơ sở (2,340,000 từ 1/7/2024)
+BHXH_CAP = 20 * 2_340_000   # 46,800,000 đồng/tháng
+
+# Mức trần đóng BHTN = 20 × lương tối thiểu vùng I (4,960,000 từ 1/7/2024)
+BHTN_CAP = 20 * 4_960_000   # 99,200,000 đồng/tháng
+
+# Biểu thuế TNCN lũy tiến từng phần (Điều 22, Luật Thuế TNCN)
+# Mỗi phần tử: (khoảng thu nhập chịu thuế của bậc, thuế suất)
+# Tính theo tháng (bằng 1/12 biểu thuế năm)
+PIT_BRACKETS = [
+    (5_000_000,     0.05),   # Bậc 1: ≤ 5 triệu → 5%
+    (5_000_000,     0.10),   # Bậc 2: 5–10 triệu → 10%
+    (8_000_000,     0.15),   # Bậc 3: 10–18 triệu → 15%
+    (14_000_000,    0.20),   # Bậc 4: 18–32 triệu → 20%
+    (20_000_000,    0.25),   # Bậc 5: 32–52 triệu → 25%
+    (28_000_000,    0.30),   # Bậc 6: 52–80 triệu → 30%
+    (float('inf'), 0.35),   # Bậc 7: > 80 triệu → 35%
+]
+
+
+# ============================================================
+# HÀM TÍNH BẢO HIỂM XÃ HỘI
+# ============================================================
+
+def calculate_insurance(gross_salary: float) -> dict:
+    """
+    Tính các khoản trừ bảo hiểm (phần người lao động đóng).
+
+    Args:
+        gross_salary: Lương gross tháng (đồng)
+
+    Returns:
+        dict với bhxh, bhyt, bhtn, total
+    """
+    # Áp dụng mức trần trước khi nhân tỷ lệ
+    bhxh_base = min(gross_salary, BHXH_CAP)
+    bhtn_base = min(gross_salary, BHTN_CAP)
+
+    bhxh = bhxh_base * BHXH_RATE
+    bhyt = bhxh_base * BHYT_RATE   # BHYT dùng cùng trần với BHXH
+    bhtn = bhtn_base * BHTN_RATE
+
+    return {
+        'bhxh': bhxh,
+        'bhyt': bhyt,
+        'bhtn': bhtn,
+        'total': bhxh + bhyt + bhtn,
+    }
+
+
+# ============================================================
+# HÀM TÍNH THUẾ TNCN (7 BẬC LŨY TIẾN)
+# ============================================================
+
+def calculate_pit(taxable_income: float) -> float:
+    """
+    Tính thuế TNCN theo phương pháp lũy tiến từng phần.
+
+    Args:
+        taxable_income: Thu nhập chịu thuế sau giảm trừ (đồng)
+
+    Returns:
+        Số thuế TNCN phải nộp (đồng)
+    """
+    if taxable_income <= 0:
+        return 0.0
+
+    pit = 0.0
+    remaining = taxable_income
+
+    for bracket_size, rate in PIT_BRACKETS:
+        if remaining <= 0:
+            break
+        # Phần thu nhập tính thuế tại bậc này
+        taxable_at_bracket = min(remaining, bracket_size)
+        pit += taxable_at_bracket * rate
+        remaining -= taxable_at_bracket
+
+    return pit
+
+
+# ============================================================
+# HÀM TÍNH LƯƠNG CHO TỪNG NHÂN VIÊN
+# ============================================================
+
+def calculate_employee_payroll(employee: dict) -> dict:
+    """
+    Tính toàn bộ bảng lương cho một nhân viên.
+
+    Args:
+        employee: dict với các key:
+            - id (str): Mã nhân viên
+            - name (str): Họ và tên
+            - gross_salary (float): Lương gross tháng
+            - dependents (int): Số người phụ thuộc đã đăng ký
+            - allowance (float, optional): Phụ cấp không tính thuế (mặc định 0)
+
+    Returns:
+        dict chứa toàn bộ kết quả tính lương
+    """
+    gross = float(employee['gross_salary'])
+    dependents = int(employee.get('dependents', 0))
+    allowance = float(employee.get('allowance', 0))  # Phụ cấp miễn thuế (ăn ca, xăng xe...)
+
+    # Bước 1: Tính bảo hiểm
+    insurance = calculate_insurance(gross)
+
+    # Bước 2: Tính thu nhập chịu thuế
+    # TNCT = Gross - Bảo hiểm - Giảm trừ bản thân - Giảm trừ người phụ thuộc - Phụ cấp miễn thuế
+    deduction_personal = PERSONAL_DEDUCTION
+    deduction_dependent = dependents * DEPENDENT_DEDUCTION
+    taxable_income = gross - insurance['total'] - deduction_personal - deduction_dependent - allowance
+    taxable_income = max(0, taxable_income)  # Không âm
+
+    # Bước 3: Tính thuế TNCN
+    pit = calculate_pit(taxable_income)
+
+    # Bước 4: Tính lương net
+    net_salary = gross - insurance['total'] - pit
+
+    return {
+        'id':                   employee['id'],
+        'name':                 employee['name'],
+        'gross_salary':         gross,
+        'allowance':            allowance,
+        'bhxh':                 insurance['bhxh'],
+        'bhyt':                 insurance['bhyt'],
+        'bhtn':                 insurance['bhtn'],
+        'total_insurance':      insurance['total'],
+        'deduction_personal':   deduction_personal,
+        'deduction_dependent':  deduction_dependent,
+        'dependents':           dependents,
+        'taxable_income':       taxable_income,
+        'pit':                  pit,
+        'net_salary':           net_salary,
+    }
+
+
+# ============================================================
+# XỬ LÝ TOÀN BỘ DANH SÁCH NHÂN VIÊN
+# ============================================================
+
+def calculate_payroll(employees: list) -> list:
+    """
+    Tính lương cho toàn bộ danh sách nhân viên.
+
+    Args:
+        employees: List các dict nhân viên
+
+    Returns:
+        List kết quả tính lương từng người
+    """
+    return [calculate_employee_payroll(emp) for emp in employees]
