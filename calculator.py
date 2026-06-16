@@ -1,13 +1,14 @@
 """
 Vietnam Payroll Calculator - calculator.py
-Tính lương theo quy định Việt Nam (cập nhật 7/2024)
+Tính lương theo quy định Việt Nam (cập nhật 7/2026)
 
 Tài liệu pháp lý:
 - Luật Thuế TNCN số 04/2007/QH12 và các sửa đổi
 - Nghị định 65/2013/NĐ-CP (hướng dẫn thuế TNCN)
-- Luật BHXH số 58/2014/QH13
-- Nghị định 74/2024/NĐ-CP (lương tối thiểu vùng từ 1/7/2024)
+- Luật BHXH số 58/2024/QH15
+- Nghị định 293/2025/NĐ-CP (lương tối thiểu vùng từ 1/7/2024)
 - Nghị định 73/2024/NĐ-CP (lương cơ sở từ 1/7/2024)
+- Nghị quyết 110*2025/UBTVQH15
 """
 
 # ============================================================
@@ -15,8 +16,8 @@ Tài liệu pháp lý:
 # ============================================================
 
 # Giảm trừ gia cảnh (Thông tư 111/2013/TT-BTC, sửa đổi 2020)
-PERSONAL_DEDUCTION = 11_000_000     # 11 triệu đồng/tháng (bản thân)
-DEPENDENT_DEDUCTION = 4_400_000     # 4.4 triệu đồng/tháng/người phụ thuộc
+PERSONAL_DEDUCTION = 15_500_000     # 15 triệu 500 đồng/tháng (bản thân)
+DEPENDENT_DEDUCTION = 6_200_000     # 6.2 triệu đồng/tháng/người phụ thuộc
 
 # Mức đóng BHXH/BHYT/BHTN (phần người lao động)
 BHXH_RATE = 0.08    # 8% vào quỹ hưu trí và tử tuất
