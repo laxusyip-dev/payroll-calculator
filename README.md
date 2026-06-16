@@ -27,7 +27,7 @@ pip install openpyxl
 python main.py
 ```
 
-## Quy định pháp lý áp dụng (cập nhật 7/2024" → 2026; cập nhật bảng giảm trừ + bảng thuế; thêm căn cứ Luật Thuế TNCN 2025 và Nghị quyết 110/2025/UBTVQH15)
+## Quy định pháp lý áp dụng (Luật Thuế TNCN 2025 (109/2025/QH15) & Nghị quyết 110/2025/UBTVQH15, kỳ tính thuế 2026)
 
 | Khoản mục | Tỷ lệ | Mức trần |
 |---|---|---|
