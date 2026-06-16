@@ -29,13 +29,13 @@ python main.py
 
 ## Quy định pháp lý áp dụng (Luật Thuế TNCN 2025 (109/2025/QH15) & Nghị quyết 110/2025/UBTVQH15, kỳ tính thuế 2026)
 
-| Khoản mục | Tỷ lệ | Mức trần |
+| Khoản mục | Tỷ lệ | Mức trần |Mức cũ|
 |---|---|---|
-| BHXH (hưu trí + tử tuất) | 8% | 50,600,000 đ/tháng | #(Mức cũ: 46,800,000 đ/tháng)
-| BHYT | 1.5% |  50,600,000 đ/tháng | #Mức cũ: 46,800,000 đ/tháng)
-| BHTN | 1% |  106,200,000 đ/tháng | #Mức cũ: 99,200,000 đ/tháng)
-| Giảm trừ bản thân | — | 15,500,000 đ/tháng |
-| Giảm trừ NPT | — | 6,200,000 đ/người/tháng |
+| BHXH (hưu trí + tử tuất) | 8% | 50,600,000 đ/tháng | 46,800,000 đ/tháng|
+| BHYT | 1.5% |  50,600,000 đ/tháng |46,800,000 đ/tháng|
+| BHTN | 1% |  106,200,000 đ/tháng | 99,200,000 đ/tháng|
+| Giảm trừ bản thân | — | 15,500,000 đ/tháng | 11,000,000 đ/tháng|
+| Giảm trừ NPT | — | 6,200,000 đ/người/tháng | 4,400,000 đ/tháng|
 
 ## Biểu thuế TNCN (tính theo tháng)
 
