@@ -31,9 +31,9 @@ python main.py
 
 | Khoản mục | Tỷ lệ | Mức trần |
 |---|---|---|
-| BHXH (hưu trí + tử tuất) | 8% | 46,800,000 đ/tháng |
-| BHYT | 1.5% | 46,800,000 đ/tháng |
-| BHTN | 1% | 99,200,000 đ/tháng |
+| BHXH (hưu trí + tử tuất) | 8% | 50,600,000 đ/tháng | #(Mức cũ: 46,800,000 đ/tháng)
+| BHYT | 1.5% |  50,600,000 đ/tháng | #Mức cũ: 46,800,000 đ/tháng)
+| BHTN | 1% |  106,200,000 đ/tháng | #Mức cũ: 99,200,000 đ/tháng)
 | Giảm trừ bản thân | — | 15,500,000 đ/tháng |
 | Giảm trừ NPT | — | 6,200,000 đ/người/tháng |
 
@@ -62,10 +62,9 @@ Lương NET = Gross - (BHXH + BHYT + BHTN) - Thuế TNCN
 
 - Luật Thuế TNCN số 04/2007/QH12 và các văn bản sửa đổi
 - Nghị định 65/2013/NĐ-CP hướng dẫn thi hành Luật Thuế TNCN
-- Thông tư 111/2013/TT-BTC (sửa đổi bởi Nghị quyết 954/2020/UBTVQH14)
+- Thông tư 111/2013/TT-BTC (sửa đổi bởi Nghị quyết 954/2020/UBTVQH14) - Thay thế bở NQ 110/2025/UBTVQH15
 - Luật BHXH số 41/2024/QH15 - Luật BHXH
-- Nghị định 293/2025/NĐ-CP — Lương tối thiểu vùng thay đổi từ 1/7/2026, có hiệu lực từ 1/1/2026
-- Nghị định 293/2025/NĐ-CP — Lương cơ sở 2,530,000đ thay đổitừ 1/7/2026, có hiệu lực từ 1/1/2026
+- Nghị định 293/2025/NĐ-CP — Lương tối thiểu vùng (Vùng I 5,310,000) thay đổi từ 1/7/2026, có hiệu lực từ 1/1/2026
+- Lương cơ sở: ghi riêng "2,340,000 (NĐ 73/2024) đến 30/6/2026; # Dự thảo 2,530,000 từ 1/7/2026" .
 - Quyết định 595/QĐ-BHXH 2017
 - Luật 109/2025/QH15 - Luật thuế thu nhập cá nhân
-- Nghị quyết 110/2025/UBTVQH15
