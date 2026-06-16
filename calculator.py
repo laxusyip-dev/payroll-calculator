@@ -26,13 +26,13 @@ BHXH_RATE = 0.08    # 8% vào quỹ hưu trí và tử tuất
 BHYT_RATE = 0.015   # 1.5% bảo hiểm y tế
 BHTN_RATE = 0.01    # 1% bảo hiểm thất nghiệp
 
-# Mức trần đóng BHXH/BHYT = 20 × lương cơ sở (2,340,000 từ 1/7/2024)
-BHXH_CAP = 20 * 2_340_000   # 46,800,000 đồng/tháng
+# Mức trần đóng BHXH/BHYT = 20 × lương cơ sở (2,530,000 từ 1/7/2026)
+BHXH_CAP = 20 * 2_530_000   # 50,600,000 đồng/tháng
 
-# Mức trần đóng BHTN = 20 × lương tối thiểu vùng I (4,960,000 từ 1/7/2024)
-BHTN_CAP = 20 * 4_960_000   # 99,200,000 đồng/tháng
+# Mức trần đóng BHTN = 20 × lương tối thiểu vùng I (5,130,000 từ 1/7/2026)
+BHTN_CAP = 20 * 5_130_000   # 106,200,000 đồng/tháng
 
-# Biểu thuế TNCN lũy tiến từng phần (Điều 22, Luật Thuế TNCN)
+# Biểu thuế TNCN lũy tiến từng phần (Điều 9, Luật Thuế TNCN 109/2025/QH15)
 # Mỗi phần tử: (khoảng thu nhập chịu thuế của bậc, thuế suất)
 # Tính theo tháng (bằng 1/12 biểu thuế năm)
 PIT_BRACKETS = [
@@ -75,7 +75,7 @@ def calculate_insurance(gross_salary: float) -> dict:
 
 
 # ============================================================
-# HÀM TÍNH THUẾ TNCN (7 BẬC LŨY TIẾN)
+# HÀM TÍNH THUẾ TNCN (5 BẬC LŨY TIẾN)
 # ============================================================
 
 def calculate_pit(taxable_income: float) -> float:
