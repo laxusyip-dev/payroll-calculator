@@ -3,12 +3,14 @@ Vietnam Payroll Calculator - calculator.py
 Tính lương theo quy định Việt Nam (cập nhật 7/2026)
 
 Tài liệu pháp lý:
-- Luật Thuế TNCN số 04/2007/QH12 và các sửa đổi
-- Nghị định 65/2013/NĐ-CP (hướng dẫn thuế TNCN)
-- Luật BHXH số 58/2024/QH15
-- Nghị định 293/2025/NĐ-CP (lương tối thiểu vùng từ 1/7/2024)
-- Nghị định 73/2024/NĐ-CP (lương cơ sở từ 1/7/2024)
-- Nghị quyết 110*2025/UBTVQH15
+- Luật Thuế TNCN số 04/2007/QH12 và các văn bản sửa đổi
+- Nghị định 65/2013/NĐ-CP hướng dẫn thi hành Luật Thuế TNCN
+- Thông tư 111/2013/TT-BTC (sửa đổi bởi Nghị quyết 954/2020/UBTVQH14) - Thay thế bở NQ 110/2025/UBTVQH15
+- Luật BHXH số 41/2024/QH15 - Luật BHXH
+- Nghị định 293/2025/NĐ-CP — Lương tối thiểu vùng (Vùng I 5,310,000) thay đổi từ 1/7/2026, có hiệu lực từ 1/1/2026
+- NĐ 161/2026/NĐ-CP - Lương cơ sở: 2,340,000 (NĐ 73/2024) đến 30/6/2026; từ 1/7/2026: 2,530,000.
+- Quyết định 595/QĐ-BHXH 2017
+- Luật 109/2025/QH15 - Luật thuế thu nhập cá nhân
 """
 
 # ============================================================
