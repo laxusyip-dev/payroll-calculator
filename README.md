@@ -38,7 +38,7 @@ python main.py
 | Giảm trừ NPT | — | 6,200,000 đ/người/tháng | 4,400,000 đ/tháng|
 
 ## Biểu thuế TNCN (tính theo tháng)
-#  Thông tư 111/2013/TT-BTC
+#  Thông tư 111/2013/TT-BTC (MỨC CŨ)
 | Bậc | Thu nhập chịu thuế | Thuế suất |
 |---|---|---|
 | 1 | ≤ 5 triệu | 5% |
