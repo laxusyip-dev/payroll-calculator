@@ -14,12 +14,12 @@ Tài liệu pháp lý:
 """
 
 # ============================================================
-# HẰNG SỐ THEO QUY ĐỊNH PHÁP LUẬT (cập nhật 7/2024)
+# HẰNG SỐ THEO QUY ĐỊNH PHÁP LUẬT (cập nhật 2026)
 # ============================================================
 
 # Giảm trừ gia cảnh (Thông tư 111/2013/TT-BTC, sửa đổi 2020)
-PERSONAL_DEDUCTION = 15_500_000     # 15 triệu 500 đồng/tháng (bản thân)
-DEPENDENT_DEDUCTION = 6_200_000     # 6.2 triệu đồng/tháng/người phụ thuộc
+PERSONAL_DEDUCTION = 15_500_000     # 15 triệu 500 đồng/tháng (bản thân) # Mức cũ: 11,000,000đ
+DEPENDENT_DEDUCTION = 6_200_000     # 6.2 triệu đồng/tháng/người phụ thuộc # Mức cũ: 4,400,000đ
 
 # Mức đóng BHXH/BHYT/BHTN (phần người lao động)
 BHXH_RATE = 0.08    # 8% vào quỹ hưu trí và tử tuất
@@ -27,10 +27,10 @@ BHYT_RATE = 0.015   # 1.5% bảo hiểm y tế
 BHTN_RATE = 0.01    # 1% bảo hiểm thất nghiệp
 
 # Mức trần đóng BHXH/BHYT = 20 × lương cơ sở (2,530,000 từ 1/7/2026)
-BHXH_CAP = 20 * 2_530_000   # 50,600,000 đồng/tháng
+BHXH_CAP = 20 * 2_530_000   # 50,600,000 đồng/tháng # Mức cũ: 2,340,000đ
 
-# Mức trần đóng BHTN = 20 × lương tối thiểu vùng I (5,130,000 từ 1/7/2026)
-BHTN_CAP = 20 * 5_130_000   # 106,200,000 đồng/tháng
+# Mức trần đóng BHTN = 20 × lương tối thiểu vùng I (5,310,000 từ 1/7/2026)
+BHTN_CAP = 20 * 5_310_000   # 106,200,000 đồng/tháng # Mức cũ: 4,960,000 đ
 
 # Biểu thuế TNCN lũy tiến từng phần (Điều 9, Luật Thuế TNCN 109/2025/QH15)
 # Mỗi phần tử: (khoảng thu nhập chịu thuế của bậc, thuế suất)
