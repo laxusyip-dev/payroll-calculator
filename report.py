@@ -153,8 +153,8 @@ def _write_payroll_table(ws, payroll_results: list, month: int, year: int):
     notes = [
         f"Ngày xuất báo cáo: {datetime.now().strftime('%d/%m/%Y %H:%M')}",
         "BHXH: 8% | BHYT: 1.5% | BHTN: 1% (phần người lao động đóng)",
-        "Giảm trừ bản thân: 11,000,000 đồng/tháng | Giảm trừ NPT: 4,400,000 đồng/người/tháng",
-        "Thuế TNCN tính theo biểu lũy tiến 7 bậc (Điều 22, Luật Thuế TNCN)",
+        "Giảm trừ bản thân: 15,500,000 đồng/tháng | Giảm trừ NPT: 6,200,000 đồng/người/tháng",
+        "Thuế TNCN tính theo biểu lũy tiến 5 bậc (Luật số 109/2025/QH15)",
     ]
     for i, note in enumerate(notes):
         cell = ws.cell(row=note_row + i, column=1, value=note)
