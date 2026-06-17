@@ -1,6 +1,6 @@
 """
 Vietnam Payroll Calculator - calculator.py
-Tính lương theo quy định Việt Nam (cập nhật 7/2026)
+Tính lương theo quy định Việt Nam (cập nhật 2026)
 
 Tài liệu pháp lý:
 - Luật Thuế TNCN số 04/2007/QH12 và các văn bản sửa đổi
@@ -40,7 +40,7 @@ PIT_BRACKETS = [
     (20_000_000,     0.10),   # Bậc 2: 10–30 triệu → 10%
     (30_000_000,     0.20),   # Bậc 3: 30–60 triệu → 20%
     (40_000_000,    0.30),   # Bậc 4: 60–100 triệu → 30%
-    (float('inf'), 0.35),   # Bậc 7: > 100 triệu → 35%
+    (float('inf'), 0.35),   # Bậc 5: > 100 triệu → 35%
 ]
 
 
