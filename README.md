@@ -1,6 +1,6 @@
 # Vietnam Payroll Calculator
 
-Hệ thống tính lương tự động theo quy định Việt Nam, xây dựng bằng Python.
+Hệ thống tính lương tự động theo quy định của Việt Nam được xây dựng bằng Python.
 
 ## Chức năng
 
@@ -38,7 +38,18 @@ python main.py
 | Giảm trừ NPT | — | 6,200,000 đ/người/tháng | 4,400,000 đ/tháng|
 
 ## Biểu thuế TNCN (tính theo tháng)
+#  Thông tư 111/2013/TT-BTC
+| Bậc | Thu nhập chịu thuế | Thuế suất |
+|---|---|---|
+| 1 | ≤ 5 triệu | 5% |
+| 2 | 5 – 10 triệu | 10% |
+| 3 | 10 – 18 triệu | 15% |
+| 4 | 18 – 32 triệu | 20% |
+| 5 | 32 – 52 triệu | 25% |
+| 6 | 52 – 80 triệu | 30% |
+| 7 | > 80 triệu | 35% |
 
+# NQ 110/2025/UBTVQH15
 | Bậc | Thu nhập chịu thuế | Thuế suất |
 |---|---|---|
 | 1 | ≤ 10 triệu | 5% |
@@ -62,7 +73,7 @@ Lương NET = Gross - (BHXH + BHYT + BHTN) - Thuế TNCN
 
 - Luật Thuế TNCN số 04/2007/QH12 và các văn bản sửa đổi
 - Nghị định 65/2013/NĐ-CP hướng dẫn thi hành Luật Thuế TNCN
-- Thông tư 111/2013/TT-BTC (sửa đổi bởi Nghị quyết 954/2020/UBTVQH14) - Thay thế bở NQ 110/2025/UBTVQH15
+- Thông tư 111/2013/TT-BTC (sửa đổi bởi Nghị quyết 954/2020/UBTVQH14) - Thay thế bởI NQ 110/2025/UBTVQH15
 - Luật BHXH số 41/2024/QH15 - Luật BHXH
 - Nghị định 293/2025/NĐ-CP — Lương tối thiểu vùng (Vùng I 5,310,000) thay đổi từ 1/7/2026, có hiệu lực từ 1/1/2026
 - NĐ 161/2026/NĐ-CP - Lương cơ sở: 2,340,000 (NĐ 73/2024) đến 30/6/2026; từ 1/7/2026: 2,530,000.
