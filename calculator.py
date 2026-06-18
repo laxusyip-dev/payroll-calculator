@@ -18,8 +18,8 @@ Tài liệu pháp lý:
 # ============================================================
 
 # Giảm trừ gia cảnh (Thông tư 111/2013/TT-BTC, sửa đổi 2020)
-PERSONAL_DEDUCTION = 15_500_000     # 15 triệu 500 đồng/tháng (bản thân) # Mức cũ: 11,000,000đ
-DEPENDENT_DEDUCTION = 6_200_000     # 6.2 triệu đồng/tháng/người phụ thuộc # Mức cũ: 4,400,000đ
+PERSONAL_DEDUCTION = 15_500_000     # 15,5 triệu đồng/tháng (bản thân) # Mức cũ: 11,000,000đ
+DEPENDENT_DEDUCTION = 6_200_000     # 6,2 triệu đồng/tháng/người phụ thuộc # Mức cũ: 4,400,000đ
 
 # Mức đóng BHXH/BHYT/BHTN (phần người lao động)
 BHXH_RATE = 0.08    # 8% vào quỹ hưu trí và tử tuất
@@ -125,9 +125,10 @@ def calculate_employee_payroll(employee: dict) -> dict:
         dict chứa toàn bộ kết quả tính lương
     """
     gross = float(employee['gross_salary'])
+    if gross < 0:
+    raise ValueError("Gross salary must be >= 0")
     dependents = int(employee.get('dependents', 0))
     allowance = float(employee.get('allowance', 0))  # Phụ cấp miễn thuế (ăn ca, xăng xe...)
-
     # Bước 1: Tính bảo hiểm
     insurance = calculate_insurance(gross)
 
@@ -145,9 +146,10 @@ def calculate_employee_payroll(employee: dict) -> dict:
     net_salary = gross - insurance['total'] - pit
 
     return {
+        requỉed_fields = [
         'id':                   employee['id'],
         'name':                 employee['name'],
-        'gross_salary':         gross,
+        'gross_salary':         gross],
         'allowance':            allowance,
         'bhxh':                 insurance['bhxh'],
         'bhyt':                 insurance['bhyt'],
